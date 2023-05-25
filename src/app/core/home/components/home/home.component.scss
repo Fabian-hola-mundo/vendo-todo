@@ -1,0 +1,47 @@
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  section {
+    max-width: 1200px;
+    margin-top: 100px;
+    width: 100%;
+    padding: 16px;
+    .container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      &__item {
+        width: 100%;
+        transition: all 200ms ease;
+        &--header {
+          padding: 16px;
+        }
+        &--content {
+          padding: 16px;
+        }
+        & img {
+          width: 100%;
+
+        }
+        &:hover {
+          box-shadow: 0px 4px 16px rgba(0,0,0,0.16);
+          transform: translateY(-5px);
+        }
+
+        & .container__item:not(:hover) {
+          opacity: 0.5;
+        }
+      }
+      &::ng-deep{
+        .container__item {
+          box-shadow: 0px 4px 8px rgba(0,0,0,0.12);
+
+          cursor: pointer;
+
+        }
+      }
+    }
+  }
+}

@@ -1,2 +1,27 @@
-<p>home works!</p>
-<h1>sdqwdqwd</h1>
+<main class="mat-app-background">
+  <section>
+    <h1>Productos en venta</h1>
+    <div class="container">
+      <ng-container *ngFor="let product of products">
+      <mat-card
+      class="container__item"
+      matRipple>
+        <mat-card-header class="container__item--header">
+          <mat-card-title>{{product.title}}</mat-card-title>
+          <mat-card-subtitle>{{product.subtitle}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content class="container__item--content">
+          <p>
+            {{product.p}}
+          </p>
+        </mat-card-content>
+<!--         <mat-card-actions class="container__item--actions">
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions> -->
+      </mat-card>
+    </ng-container>
+    </div>
+  </section>
+</main>

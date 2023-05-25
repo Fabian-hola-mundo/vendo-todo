@@ -6,7 +6,19 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/layout/components/header/header.component';
 import { CoreModule } from './core/core.module';
 import { FooterComponent } from './core/layout/components/footer/footer.component';
+import {MatButtonModule} from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {CdkMenuModule} from '@angular/cdk/menu';
 
+const MATERIALCOMPONENTS = [
+  MatButtonModule,
+  BrowserAnimationsModule,
+  MatButtonModule
+]
+
+const MATERIALCDK = [
+  CdkMenuModule
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +28,10 @@ import { FooterComponent } from './core/layout/components/footer/footer.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    MATERIALCOMPONENTS,
+    MATERIALCDK
+
   ],
   providers: [],
   bootstrap: [AppComponent]
