@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from '../../dominio/productInterface';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-home',
@@ -10,62 +11,23 @@ import { Product } from '../../dominio/productInterface';
 
 
 export class HomeComponent {
-
+  products: Product[] = []
   isActive = false;
 
-  products: Product[] = [
-    {
-      title: "Producto",
-      subtitle: "subtitle",
-      img: "img",
-      p: "Text"
-    },
-    {
-      title: "Producto",
-      subtitle: "subtitle",
-      img: "img",
-      p: "Text"
-    },
-    {
-      title: "Producto",
-      subtitle: "subtitle",
-      img: "img",
-      p: "Text"
-    },
-    {
-      title: "Producto",
-      subtitle: "subtitle",
-      img: "img",
-      p: "Text"
-    },
-    {
-      title: "Producto",
-      subtitle: "subtitle",
-      img: "img",
-      p: "Text"
-    },
-    {
-      title: "Producto",
-      subtitle: "subtitle",
-      img: "img",
-      p: "Text"
-    },
-    {
-      title: "Producto",
-      subtitle: "subtitle",
-      img: "img",
-      p: "Text"
-    },
-    {
-      title: "Producto",
-      subtitle: "subtitle",
-      img: "img",
-      p: "Text"
-    },
-  ]
-
-  ngOnInit(): void {
+  constructor(private producService: ProductsService) {
 
   }
+
+  ngOnInit(): void {
+    this.producService.getProduct().subscribe(product => {
+      this.products = product;
+      console.log(product);
+
+    })
+  }
+
+
+
+
 
 }

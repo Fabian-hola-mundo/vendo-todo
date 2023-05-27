@@ -105,6 +105,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "vendo-todo-me-voy:build:production",
+            "firebaseProject": "vendo-todo-23682",
+            "firebaseHostingSite": "vendo-todo-23682"
+          }
         }
       }
     }

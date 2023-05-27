@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "vendo-todo-23682"
+  },
+  "targets": {
+    "vendo-todo-23682": {
+      "hosting": {
+        "vendo-todo-me-voy": [
+          "vendo-todo-23682"
+        ]
+      }
+    }
   }
 }

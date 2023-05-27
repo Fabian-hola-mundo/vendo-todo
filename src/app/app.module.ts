@@ -9,6 +9,10 @@ import { FooterComponent } from './core/layout/components/footer/footer.componen
 import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CdkMenuModule} from '@angular/cdk/menu';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 const MATERIALCOMPONENTS = [
   MatButtonModule,
@@ -30,10 +34,14 @@ const MATERIALCDK = [
     AppRoutingModule,
     CoreModule,
     MATERIALCOMPONENTS,
-    MATERIALCDK
+    MATERIALCDK,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
 
   ],
-  providers: [],
+  providers: [
+    ScreenTrackingService,UserTrackingService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
