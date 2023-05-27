@@ -1,42 +1,82 @@
 <main>
   <section>
-    <form class="example-form" [formGroup]="formulario" (submit)="onSubmit">
-      <h1>Añadir Productos</h1>
-      <mat-form-field class="example-full-width" appearance="outline">
-        <mat-label>Nombre</mat-label>
-        <input
-        type="text"
-        matInput
-        placeholder="Guitarra mela"
-        formControlName="name">
-      </mat-form-field>
+    <mat-vertical-stepper class="form-container">
+      <form class="form-container__form" [formGroup]="formulario" (submit)="onSubmit">
+        <h1>Añadir Productos</h1>
+        <mat-step class="form-container__step">
+        <ng-template matStepLabel>Datos básicos</ng-template>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input
+          type="text"
+          matInput
+          placeholder="Guitarra mela"
+          formControlName="name">
+        </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="outline">
-        <mat-label>Descripción</mat-label>
-        <input
-        type="text"
-        matInput
-        placeholder="Guitarra mela"
-        formControlName="description">
-      </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Descripción</mat-label>
+          <textarea
+          type="text"
+          matInput
+          placeholder="Guitarra mela descripción"
+          formControlName="description"></textarea>
+        </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="outline">
-        <mat-label>Precio</mat-label>
-        <input
-        type="number"
-        matInput
-        placeholder="0"
-        formControlName="price">
-        <span matTextPrefix>$&nbsp;</span>
-        <span matTextSuffix>.00</span>
-      </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Precio</mat-label>
+          <input
+          type="number"
+          matInput
+          placeholder="000"
+          formControlName="price">
+          <span matTextPrefix>$&nbsp;</span>
+        </mat-form-field>
+        <button mat-flat-button color="primary" matStepperNext>Siguiente</button>
+      </mat-step>
+      <mat-step>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Foto 1</mat-label>
+          <input
+          type="text"
+          matInput
+          placeholder="https://www.image.com/"
+          formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Foto 2</mat-label>
+          <input
+          type="text"
+          matInput
+          placeholder="https://www.image.com/"
+          formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Foto 3</mat-label>
+          <input
+          type="text"
+          matInput
+          placeholder="https://www.image.com/"
+          formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Foto 4</mat-label>
+          <input
+          type="text"
+          matInput
+          placeholder="https://www.image.com/"
+          formControlName="name">
+        </mat-form-field>
+        <button mat-stroked-button color="primary" matStepperPrevious>Atras</button>
+        <button mat-flat-button color="primary" matStepperNext>Siguiente</button>
+      </mat-step>
+      <mat-step>
 
-      <input
-      type="file"
-      placeholder="Guitarra mela"
-      formControlName="image">
+      </mat-step>
+      <button mat-raised-button color="primary" type="submit" (click)="onSubmit()"> Enviar </button>
 
-      <button mat-raised-button color="primary" (click)="onSubmit"> Enviar </button>
     </form>
-  </section>
+
+  </mat-vertical-stepper>
+</section>
 </main>

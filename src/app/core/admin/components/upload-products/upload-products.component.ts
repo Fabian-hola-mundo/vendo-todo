@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Product } from 'src/app/interfaces/products';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -10,6 +11,9 @@ import { ProductsService } from 'src/app/services/products.service';
 export class UploadProductsComponent {
 
 formulario!: FormGroup;
+inputText!: string;
+
+products = {}
 
   constructor(
     private productService: ProductsService
@@ -22,9 +26,16 @@ formulario!: FormGroup;
     })
   }
 
-  async onSubmit() {
+  ngOnInit(): void {
+    this.productService.getProduct().subscribe(product => {
+      this.products = product
+
+    })
+  }
+
+  onSubmit() {
     console.log(this.formulario.value);
-    const response = await this.productService.addProduct(this.formulario.value)
+    const response =  this.productService.addProduct(this.formulario.value)
     console.log(response);
   }
 

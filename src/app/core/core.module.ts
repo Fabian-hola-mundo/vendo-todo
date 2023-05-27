@@ -8,8 +8,12 @@ import {MatCardModule} from '@angular/material/card';
 import { UploadProductsComponent } from './admin/components/upload-products/upload-products.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {ErrorStateMatcher} from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {TextFieldModule} from '@angular/cdk/text-field';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { ProductComponent } from './home/components/product/product.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 const MATERIALCDK = [
@@ -23,7 +27,11 @@ const MATERIALCOMPONENTS = [
   MatFormFieldModule,
   MatInputModule,
   ReactiveFormsModule,
-  FormsModule
+  FormsModule,
+  TextFieldModule,
+  ScrollingModule,
+  MatBottomSheetModule,
+  MatStepperModule
 ]
 
 const COMPONENTS = [
@@ -34,6 +42,7 @@ const COMPONENTS = [
 @NgModule({
   declarations: [
     COMPONENTS,
+    ProductComponent,
   ],
   imports: [
     CommonModule,
