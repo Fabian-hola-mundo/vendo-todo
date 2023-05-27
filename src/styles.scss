@@ -1,5 +1,7 @@
+
 @use '@angular/material' as mat;
 @include mat.core();
+@import './styles/base';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

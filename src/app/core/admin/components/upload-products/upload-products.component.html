@@ -1,0 +1,42 @@
+<main>
+  <section>
+    <form class="example-form" [formGroup]="formulario" (submit)="onSubmit">
+      <h1>Añadir Productos</h1>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input
+        type="text"
+        matInput
+        placeholder="Guitarra mela"
+        formControlName="name">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Descripción</mat-label>
+        <input
+        type="text"
+        matInput
+        placeholder="Guitarra mela"
+        formControlName="description">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Precio</mat-label>
+        <input
+        type="number"
+        matInput
+        placeholder="0"
+        formControlName="price">
+        <span matTextPrefix>$&nbsp;</span>
+        <span matTextSuffix>.00</span>
+      </mat-form-field>
+
+      <input
+      type="file"
+      placeholder="Guitarra mela"
+      formControlName="image">
+
+      <button mat-raised-button color="primary" (click)="onSubmit"> Enviar </button>
+    </form>
+  </section>
+</main>

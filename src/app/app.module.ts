@@ -11,13 +11,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import { ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import {
+  FormControl,
+  FormGroupDirective,
+  NgForm,
+  Validators,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 
 const MATERIALCOMPONENTS = [
   MatButtonModule,
   BrowserAnimationsModule,
-  MatButtonModule
+  MatButtonModule,
+
 ]
 
 const MATERIALCDK = [
