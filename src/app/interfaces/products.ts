@@ -1,5 +1,8 @@
 export interface Product {
-  title: string
+  name: string
   description: string
-  id: number
+  price: number
+  image: string[]
+  place: number
+  stateOfProduct: number
 }

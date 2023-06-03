@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Product } from '../../dominio/productInterface';
 import { ProductsService } from 'src/app/services/products.service';
+import { ProducSelectedService } from 'src/app/services/produc-selected.service';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { ProductComponent } from '../product/product.component';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +14,13 @@ import { ProductsService } from 'src/app/services/products.service';
 
 
 export class HomeComponent {
-  products: Product[] = []
+  products: any | Product[] = []
   isActive = false;
 
-  constructor(private producService: ProductsService) {
+  constructor(
+    private producService: ProductsService,
+    private productSelect: ProducSelectedService,
+    private _bottomSheet: MatBottomSheet ) {
 
   }
 
@@ -26,8 +32,9 @@ export class HomeComponent {
     })
   }
 
-
-
-
-
-}
+  onSelect(product: Product) {
+    this.productSelect.establecerDatos(product)
+    console.log(product);
+    this._bottomSheet.open(ProductComponent)
+  };
+};

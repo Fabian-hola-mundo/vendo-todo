@@ -14,7 +14,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { ProductComponent } from './home/components/product/product.component';
 import {MatStepperModule} from '@angular/material/stepper';
-
+import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
 
 const MATERIALCDK = [
   A11yModule
@@ -31,7 +32,9 @@ const MATERIALCOMPONENTS = [
   TextFieldModule,
   ScrollingModule,
   MatBottomSheetModule,
-  MatStepperModule
+  MatStepperModule,
+  MatSelectModule,
+  MatIconModule
 ]
 
 const COMPONENTS = [

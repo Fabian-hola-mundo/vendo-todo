@@ -4,22 +4,23 @@
       <h1>Segundazo</h1>
       <h2>Lo más barato y fino que verá en el mercado, mi amor... Pásele</h2>
       <div class="ur-welcome__btn">
-        <button mat-raised-button color="primary">Quiero vender algo</button>
+        <button mat-raised-button color="primary" routerLink="/nuevo" routerLinkActive="router-link-active" >Quiero vender algo</button>
         <button mat-stroked-button color="primary">Vale mondá</button>
       </div>
     </div>
     <div class="products">
       <h1>Productos en venta</h1>
       <div class="container">
-        <ng-container *ngFor="let product of products">
+        <ng-container *ngFor="let product of products; let i=index">
         <mat-card
         class="container__item"
-        matRipple>
+        matRipple
+        (click)="onSelect(product)">
           <mat-card-header class="container__item--header">
             <mat-card-title>{{product.name}}</mat-card-title>
             <mat-card-subtitle>{{product.description}}</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image [src]="product.image" alt="Photo of a Shiba Inu">
+          <img mat-card-image [src]="product.image[0]" alt="Photo of a Shiba Inu">
           <mat-card-content class="container__item--content">
             <p>
               {{product.price}}

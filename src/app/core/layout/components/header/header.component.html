@@ -1,6 +1,8 @@
-<nav>
+<nav [ngClass]="{'hide-nav': !isScrollingUp}">
   <div>
-    <img src="../../../../../assets/layout/logo.png" alt="Logo">
-    <button mat-stroked-button color="primary">Inicio</button>
+    <h3>Segundazo</h3>
+    <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+      <mat-icon>home</mat-icon>
+    </button>
   </div>
 </nav>

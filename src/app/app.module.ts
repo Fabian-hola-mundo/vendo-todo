@@ -21,12 +21,13 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 const MATERIALCOMPONENTS = [
   MatButtonModule,
   BrowserAnimationsModule,
   MatButtonModule,
-
+  MatIconModule
 ]
 
 const MATERIALCDK = [
