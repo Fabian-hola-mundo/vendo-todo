@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, FormBuilder } from '@angular/forms';
-import { Product } from 'src/app/interfaces/products';
 import { ProductsService } from 'src/app/services/products.service';
+import { DataModel } from '../models/forms.model';
 
 @Component({
   selector: 'app-upload-products',
@@ -10,11 +10,9 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class UploadProductsComponent {
 
-formulario!: any;
-form!: any;
-inputText!: string;
-rates: any = [1, 2, 3, 4, 5];
-image!: string
+  firstData! : DataModel[]
+
+  formulario!: any;
 
 products = {}
 
@@ -23,20 +21,13 @@ products = {}
     private formBuilder: FormBuilder
   ) {
     this.formulario = new FormGroup({
-      name: new FormControl(),
+      title: new FormControl(),
       description: new FormControl(),
       price: new FormControl(),
       image: new FormArray([]),
       place: new FormControl(),
       stateOfProduct: new FormControl()
     })
-  }
-
-  pushImage(){
-    this.formulario.image.push(this.image)
-    console.log(this.formulario.image);
-
-    this.image = ''
   }
 
   get imageArray() {
@@ -52,33 +43,42 @@ products = {}
   }
 
   ngOnInit(): void {
-
-    this.form = this.formBuilder.group({
-      nombre: [null],
-      arreglo: this.formBuilder.array([])
-    })
-
-    this.productService.getProduct().subscribe(product => {
-      this.products = product
-
-    })
-  }
-
-  agregarTelefonoCorreo() {
-    const arreglo = this.form.get('arreglo') as FormArray;
-
-    const grupo = this.formBuilder.group({
-      telefono: [null],
-      correo: [null]
-    })
-
-    arreglo.push(grupo);
+    this.createFirstStep()
   }
 
   onSubmit() {
     console.log(this.formulario.value);
     const response =  this.productService.addProduct(this.formulario.value)
     console.log(response);
+  }
+
+  createFirstStep() {
+    this.firstData = [
+      {
+        input: 'input',
+        label: 'Título',
+        type: 'text',
+        placeholder: 'Guitarra Mela',
+        formControlName: 'title',
+        required: true
+      },
+      {
+        input: 'textarea',
+        label: 'Descripción',
+        type: 'text',
+        placeholder: 'Guitarra Mela',
+        formControlName: 'description',
+        required: true
+      },
+      {
+        input: 'input',
+        label: 'Precio',
+        type: 'number',
+        placeholder: '25000',
+        formControlName: 'price',
+        required: true
+      },
+    ]
   }
 
 }

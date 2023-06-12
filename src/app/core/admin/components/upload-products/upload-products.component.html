@@ -3,105 +3,27 @@
     <div class="form-container">
       <h1>Añadir Productos</h1>
       <mat-vertical-stepper>
+
         <form class="form-container__form" [formGroup]="formulario" (submit)="onSubmit">
           <mat-step class="form-container__step">
-          <ng-template matStepLabel>Datos básicos</ng-template>
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Nombre</mat-label>
-            <input
-            type="text"
-            matInput
-            placeholder="Guitarra mela"
-            formControlName="name"
-            required>
-            <mat-error>Requerido</mat-error>
-          </mat-form-field>
+              <ng-template matStepLabel>Datos básicos</ng-template>
+              <app-first-step [firstData]="firstData"></app-first-step>
+              <button mat-flat-button color="primary" matStepperNext >Siguiente</button>
+            </mat-step>
 
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Descripción</mat-label>
-            <textarea
-            type="text"
-            matInput
-            placeholder="Guitarra mela descripción"
-            formControlName="description"></textarea>
-          </mat-form-field>
+            <mat-step>
+              <ng-template matStepLabel>Fotos</ng-template>
+                   <app-second-step></app-second-step>
+              <button mat-stroked-button color="primary" matStepperPrevious>Atras</button>
+              <button mat-flat-button color="primary" matStepperNext>Siguiente</button>
+            </mat-step>
 
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Precio</mat-label>
-            <input
-            type="number"
-            matInput
-            placeholder="000"
-            formControlName="price"
-            required>
-            <span matTextPrefix>$&nbsp;</span>
-            <mat-error>Requerido</mat-error>
-          </mat-form-field>
-          <button mat-flat-button color="primary" matStepperNext>Siguiente</button>
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel>Fotos</ng-template>
-            <div formArrayName="arreglo" *ngIf="form.get('arreglo')['controls'].length > 0">
-              <mat-form-field class="example-full-width" appearance="outline">
-                <mat-label>Foto 1</mat-label>
-                <input
-                [(ngModel)]="image"
-                type="text"
-                matInput
-                placeholder="https://www.image.com/"
-                formArrayName="image"
-                required>
-              </mat-form-field>
-              <mat-form-field class="example-full-width" appearance="outline">
-                <mat-label>Foto 2</mat-label>
-                <input
-                [(ngModel)]="image"
-                type="text"
-                matInput
-                placeholder="https://www.image.com/"
-                formArrayName="image"
-                required>
-              </mat-form-field>
-              <mat-form-field class="example-full-width" appearance="outline">
-                <mat-label>Foto 3</mat-label>
-                <input
-                [(ngModel)]="image"
-                type="text"
-                matInput
-                placeholder="https://www.image.com/"
-                formArrayName="image"
-                required>
-              </mat-form-field>
-              <button mat-button (click)="pushImage()">Enviar</button>
-            </div>
-          <button mat-stroked-button color="primary" matStepperPrevious>Atras</button>
-          <button mat-flat-button color="primary" matStepperNext>Siguiente</button>
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel>Características</ng-template>
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Ubicación</mat-label>
-            <input
-            type="text"
-            matInput
-            placeholder="https://www.image.com/"
-            formControlName="place">
-          </mat-form-field>
-
-          <mat-form-field appearance="outline">
-            <mat-label>Estado del producto</mat-label>
-            <mat-icon matTextSuffix>grade</mat-icon>
-            <mat-select
-            formControlName="stateOfProduct">
-              <mat-option *ngFor="let rate of rates" [value]="rate">
-                {{rate}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <button mat-raised-button color="primary" type="submit" (click)="onSubmit()"> Enviar </button>
-        </mat-step>
-
-      </form>
+            <mat-step>
+              <ng-template matStepLabel>Características</ng-template>
+              <!--      <app-third-step></app-third-step> -->
+              <button mat-raised-button color="primary" type="submit" (click)="onSubmit()"> Enviar </button>
+            </mat-step>
+          </form>
 
     </mat-vertical-stepper>
     </div>

@@ -16,6 +16,10 @@ import { ProductComponent } from './home/components/product/product.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
+import { FirstStepComponent } from './admin/components/first-step/first-step.component';
+import { SecondStepComponent } from './admin/components/second-step/second-step.component';
+import { ThirdStepComponent } from './admin/components/third-step/third-step.component';
 
 const MATERIALCDK = [
   A11yModule
@@ -34,7 +38,8 @@ const MATERIALCOMPONENTS = [
   MatBottomSheetModule,
   MatStepperModule,
   MatSelectModule,
-  MatIconModule
+  MatIconModule,
+  RouterLink
 ]
 
 const COMPONENTS = [
@@ -46,6 +51,9 @@ const COMPONENTS = [
   declarations: [
     COMPONENTS,
     ProductComponent,
+    FirstStepComponent,
+    SecondStepComponent,
+    ThirdStepComponent,
   ],
   imports: [
     CommonModule,
