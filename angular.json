@@ -115,11 +115,23 @@
             "firebaseProject": "vendo-todo-23682",
             "firebaseHostingSite": "vendo-todo-23682"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "567573d7-df19-4d92-bb57-3afa4b3304e2"
+    "analytics": "567573d7-df19-4d92-bb57-3afa4b3304e2",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

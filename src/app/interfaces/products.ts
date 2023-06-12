@@ -1,8 +1,13 @@
 export interface Product {
-  name: string
-  description: string
-  price: number
-  image: string[]
-  place: number
-  stateOfProduct: number
+  catergory: string;
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  image: string[] | string;
+  place?: number;
+  rating?: {
+    rate?: number;
+    count?: number;
+  };
 }

@@ -2,20 +2,16 @@ import { Injectable } from '@angular/core';
 import { Product } from '../interfaces/products';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProducSelectedService {
+  public product!: Product;
 
-  public product! : Product
-
-  constructor() { }
-
-  establecerDatos(datos: any) {
+  establecerDatos(datos: Product | any) {
     this.product = datos;
   }
 
   obtenerDatos() {
     return this.product;
   }
-
 }
