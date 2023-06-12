@@ -1,0 +1,12 @@
+<div *ngFor="let input of secondData">
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label>{{input.label}}</mat-label>
+    <input
+    type="text"
+    matInput
+    placeholder="https://www.image.com/"
+    formArrayName="image"
+    required>
+  </mat-form-field>
+  <button mat-button>Enviar</button>
+</div>
