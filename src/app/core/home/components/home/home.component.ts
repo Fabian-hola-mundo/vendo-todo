@@ -1,44 +1,60 @@
-import { Component } from '@angular/core';
-import { Product } from '../../dominio/productInterface';
-import { ProductsService } from 'src/app/services/products.service';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ProducSelectedService } from 'src/app/services/produc-selected.service';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { MatBottomSheet, MatBottomSheetConfig } from '@angular/material/bottom-sheet';
 import { ProductComponent } from '../product/product.component';
 import { GetFakeProductsService } from 'src/app/services/get-fake-products.service';
+import { Product } from 'src/app/interfaces/products';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   products: any | Product[] = [];
   fakeProductsList: object = [];
   isActive = false;
+  screenWidth!: number;
+  sideBottomSheet = '';
+  dc: MatBottomSheetConfig = {
+    panelClass: '',
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.screenWidth = window.innerWidth;
+    this.setBottomDirection()
+  }
 
   constructor(
-    private producService: ProductsService,
     private productSelect: ProducSelectedService,
     private _bottomSheet: MatBottomSheet,
     private fakeProducts: GetFakeProductsService
   ) {}
 
   ngOnInit(): void {
-    /*     this.producService.getProduct().subscribe(product => {
-      this.products = product;
-      console.log(product);
-
-    }) */
-
     this.fakeProducts.getAllProducts().subscribe((data) => {
-      console.log(data);
       this.products = data;
     });
+    this.screenWidth = window.innerWidth;
+    this.setBottomDirection()
+  }
+
+  setBottomDirection() {
+    if (this.screenWidth >= 1007) {
+      this.dc = {
+        panelClass: 'rightSide',
+      }
+    } else {
+      return
+    }
   }
 
   onSelect(product: Product) {
-    this.productSelect.establecerDatos(product);
+    // this.productSelect.establecerDatos(product);
+    this.fakeProducts.getSelectedProduct(product)
     console.log(product);
-    this._bottomSheet.open(ProductComponent);
+    this._bottomSheet.open(ProductComponent, this.dc);
   }
 }

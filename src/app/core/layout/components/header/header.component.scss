@@ -2,7 +2,7 @@ nav {
   margin: 0 auto;
   position: fixed;
   display: flex;
-  top: 0;
+  top: 12px;
   z-index: 1;
   width: 100%;
   padding: 8px;
@@ -16,7 +16,7 @@ nav {
   width: 100%;
   max-width: 1200px;
   box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
-  background-color: white;
+  background-color: var(--mdc-elevated-card-container-color);
   justify-content: space-between;
   align-items: center;
   & h3 {

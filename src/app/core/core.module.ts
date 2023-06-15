@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/components/home/home.component';
 import {MatButtonModule} from '@angular/material/button';
 import {A11yModule} from '@angular/cdk/a11y';
-import {MatRippleModule} from '@angular/material/core';
+import {MatRipple, MatRippleModule} from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import { UploadProductsComponent } from './admin/components/upload-products/upload-products.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -20,6 +20,8 @@ import { RouterLink } from '@angular/router';
 import { FirstStepComponent } from './admin/components/first-step/first-step.component';
 import { SecondStepComponent } from './admin/components/second-step/second-step.component';
 import { ThirdStepComponent } from './admin/components/third-step/third-step.component';
+import { ViewImagesComponent } from './home/components/product/view-images/view-images.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 const MATERIALCDK = [
   A11yModule
@@ -39,7 +41,8 @@ const MATERIALCOMPONENTS = [
   MatStepperModule,
   MatSelectModule,
   MatIconModule,
-  RouterLink
+  RouterLink,
+  MatDialogModule,
 ]
 
 const COMPONENTS = [
@@ -54,6 +57,7 @@ const COMPONENTS = [
     FirstStepComponent,
     SecondStepComponent,
     ThirdStepComponent,
+    ViewImagesComponent,
   ],
   imports: [
     CommonModule,

@@ -65,3 +65,16 @@ main {
     }
   }
 }
+
+::ng-deep {
+  .rightSide {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    height: 100vh;
+    & .mat-bottom-sheet-container {
+      max-height: 100vh !important;
+    }
+  }
+
+}

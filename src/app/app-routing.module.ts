@@ -4,7 +4,7 @@ import { HomeComponent } from './core/home/components/home/home.component';
 import { UploadProductsComponent } from './core/admin/components/upload-products/upload-products.component';
 
 const routes: Routes = [
-  { path: 'inicio', component: HomeComponent, title: 'Telecafe - Inicio' },
+  { path: 'inicio', component: HomeComponent, title: 'Segundazo papá' },
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
   { path: 'nuevo', component: UploadProductsComponent, pathMatch: 'full' },
 ];

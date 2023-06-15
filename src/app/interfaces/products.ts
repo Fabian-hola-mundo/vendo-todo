@@ -1,10 +1,15 @@
+export interface Category {
+  id: string;
+  name: string;
+}
+
 export interface Product {
-  catergory: string;
+  category: Category;
   id: number;
   title: string;
   description: string;
   price: number;
-  image: string[] | string;
+  images: string[];
   place?: number;
   rating?: {
     rate?: number;
