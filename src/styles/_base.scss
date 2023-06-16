@@ -1,6 +1,4 @@
-:root {
-
-}
+@import './cads';
 
 html {
   main {
@@ -18,3 +16,6 @@ html {
 
 }
 
+p {
+  color: var(--lt-color-gray-200);
+}
